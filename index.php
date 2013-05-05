@@ -6,10 +6,10 @@
 	</head>
 	<body>
 		<ul id="menu">
-			<li><a href="#container1">Home</a></li>
-			<li><a href="#container2">Contact</a></li>
-			<li><a href="#container3">About</a></li>
-			<li><a href="#container4">Play</a></li>
+			<li><a href="#container1">Container 1</a></li>
+			<li><a href="#container2">Container 2</a></li>
+			<li><a href="#container3">Container 3</a></li>
+			<li><a href="#container4">Container 4</a></li>
 		</ul>
 			<div id="indicator"></div>
 		<div id="content-pages">
