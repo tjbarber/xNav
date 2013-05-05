@@ -4,7 +4,7 @@
 	
 	var currentID,
 		currentPosition,
-		currentWidth,
+		currentDistance,
 		currentLink,
 
 		xNav = {
@@ -34,7 +34,7 @@
 		setData: function(a) {
 			currentLink = a,
 			currentPosition = currentLink.offset(),
-			currentWidth = currentLink.width();
+			currentDistance = currentLink.width();
 		},
 		
 		checkStatus: function(e) {
@@ -66,7 +66,7 @@
 		
 		setHelper: function() {
 			if (xNav.config.navHelper === true ) $('#indicator')
-				.css('left', currentPosition.left + (currentWidth / 2.5))
+				.css('left', currentPosition.left + (currentDistance / 2.5))
 				.show();
 		}
 		
@@ -77,7 +77,7 @@
 		menuItems:$('#menu li'),
 		contentContainer: $('#content-pages'),
 		content: $('#content-pages div'),
-		navHelper: true
+		navHelper: false
 	});
 	
 })();

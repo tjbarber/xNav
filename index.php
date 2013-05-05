@@ -6,28 +6,28 @@
 	</head>
 	<body>
 		<ul id="menu">
-			<li><a href="#home">Home</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li><a href="#about">About</a></li>
-			<li><a href="#play">Play</a></li>
+			<li><a href="#container1">Home</a></li>
+			<li><a href="#container2">Contact</a></li>
+			<li><a href="#container3">About</a></li>
+			<li><a href="#container4">Play</a></li>
 		</ul>
 			<div id="indicator"></div>
 		<div id="content-pages">
 				
-				<div class="content" id="home">
-					<p>Welcome to my home page.</p>
+				<div class="content" id="container1">
+					<p>Content Container 1</p>
 				</div>
 				
-				<div class="content" id="contact">
-					<p>You can contact me at 225-244-4074.</p>
+				<div class="content" id="container2">
+					<p>Content Container 2</p>
 				</div>
 				
-				<div class="content" id="about">
-					<p>I am a Christian web developer.</p>
+				<div class="content" id="container3">
+					<p>Content Container 3</p>
 				</div>
 				
-				<div class="content" id="play">
-					<p>I like to play Halo: Combat Evolved.</p>
+				<div class="content" id="container4">
+					<p>Content Container 4</p>
 				</div>
 				
 		</div>
