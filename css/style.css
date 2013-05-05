@@ -34,15 +34,20 @@
   margin: 0 auto; }
 
 #indicator {
-  width: 13px;
-  height: 13px;
-  background-color: black;
-  display: none;
-  -webkit-transform: rotate(-45deg);
-  position: absolute;
-  z-index: 12;
-  left: 389px;
-  top: 45px; }
+  	width: 13px;
+  	height: 13px;
+  	background-color: black;
+  	display: none;
+    -webkit-transform: rotate(-45deg);
+  	-moz-transform: rotate(-45deg);
+  	-o-transform: rotate(-45deg);
+  	-ms-transform: rotate(-45deg);
+  	transform: rotate(-45deg);
+  	position: absolute;
+  	z-index: 12;
+  	left: 389px;
+  	top: 45px;
+  }
 
 .js #content-pages {
   width: 640px;
