@@ -1,4 +1,4 @@
-(function() {
+/*(function() {*/
 	
 	$('html').addClass('js');
 	
@@ -6,6 +6,7 @@
 		currentPosition,
 		currentDistance,
 		currentLink,
+		currentDirection,
 
 		xNav = {
 		
@@ -15,26 +16,33 @@
 			menuItems: undefined,
 			contentContainer: undefined,
 			content: undefined,
-			navHelper: false
+			navHelper: false,
+			navAnimation: undefined,
+			isVertical: false
 		},
 		
 		init: function(config) {
 			var cf = xNav.config;
 			
 			$.extend(this.config, config);
-		
 			xNav.setData(xNav.config.menuItems.eq(0));
 			cf.contentContainer.show();
 			cf.content.eq(0).show();
-			xNav.setHelper();
+			
+			if (cf.navHelper === true) {
+				cf.isVertical === true ? currentDirection = 'top' : currentDirection = 'left';
+				xNav.setData(xNav.config.menuItems.eq(0));
+				xNav.helper.set();
+				xNav.helper.control();
+			}
 			
 			(this.config.menuItems).on('click', 'a', this.checkStatus); 
 		},
 		
 		setData: function(a) {
-			currentLink = a,
-			currentPosition = currentLink.offset(),
-			currentDistance = currentLink.width();
+			currentLink = a;
+			currentPosition = currentLink.offset();
+			currentDirection === 'top' ? currentDistance = currentLink.height() : currentDistance = currentLink.width();
 		},
 		
 		checkStatus: function(e) {
@@ -61,15 +69,33 @@
 			cf.contentContainer
 				.children('div' + currentID)[effect](speed);
 			
-			xNav.setHelper();
+			if (xNav.config.navHelper === true) {
+				xNav.helper.control();
+			}
+			
 		},
 		
-		setHelper: function() {
-			if (xNav.config.navHelper === true ) $('#indicator')
-				.css('left', currentPosition.left + (currentDistance / 2.5))
-				.show();
+		helper: {
+			
+			set: function() {
+				$('<div id="indicator"></div>')
+					.insertBefore(xNav.config.contentContainer);
+			},
+			
+			control: function() {
+				$('#indicator')
+					.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5))
+					.show();
+					console.log("What is should be is: " + (currentPosition[currentDirection] + (currentDistance / 2.5)) + ". If this is not in the 70 range, something is wrong with me.");
+					console.log("Something is wrong with me. Here's the data you need:");
+					console.log("Current position: " + currentPosition);
+					console.log("currentPosition[currentDirection]: " + currentPosition[currentDirection]);
+					console.log(currentDirection);
+					console.log("currentDistance: " + currentDistance);
+					console.log("currentDistance / 2.5: " + currentDistance / 2.5);
+					
+				}
 		}
-		
 	};
 	
 	xNav.init({
@@ -77,7 +103,8 @@
 		menuItems:$('#menu li'),
 		contentContainer: $('#content-pages'),
 		content: $('#content-pages div'),
-		navHelper: false
+		navHelper: true,
+		isVertical: true
 	});
 	
-})();
+	/*})();*/

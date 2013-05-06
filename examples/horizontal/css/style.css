@@ -37,7 +37,7 @@
   	width: 13px;
   	height: 13px;
   	background-color: black;
-  	display: none;
+  	display: block;
     -webkit-transform: rotate(-45deg);
   	-moz-transform: rotate(-45deg);
   	-o-transform: rotate(-45deg);
