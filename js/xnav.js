@@ -1,4 +1,4 @@
-/*(function() {*/
+(function() {
 	
 	$('html').addClass('js');
 	
@@ -25,7 +25,6 @@
 			var cf = xNav.config;
 			
 			$.extend(this.config, config);
-			xNav.setData(xNav.config.menuItems.eq(0));
 			cf.contentContainer.show();
 			cf.content.eq(0).show();
 			
@@ -86,14 +85,6 @@
 				$('#indicator')
 					.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5))
 					.show();
-					console.log("What is should be is: " + (currentPosition[currentDirection] + (currentDistance / 2.5)) + ". If this is not in the 70 range, something is wrong with me.");
-					console.log("Something is wrong with me. Here's the data you need:");
-					console.log("Current position: " + currentPosition);
-					console.log("currentPosition[currentDirection]: " + currentPosition[currentDirection]);
-					console.log(currentDirection);
-					console.log("currentDistance: " + currentDistance);
-					console.log("currentDistance / 2.5: " + currentDistance / 2.5);
-					
 				}
 		}
 	};
@@ -107,4 +98,4 @@
 		isVertical: true
 	});
 	
-	/*})();*/
+})();
