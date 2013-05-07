@@ -43,7 +43,7 @@ These are the options that you can pass to xNav as an option in the xNav.init fu
 
 ```contentContainer```: The valid jQuery selector of your data set's parent ```<div>```. Required.
 
-```navHelper```: Accepts ```true``` or ```false```. This will turn on the navigation helper.
+```navHelper```: Accepts ```true``` or ```false```. This will turn on the navigation helper. 
 
 ```isVertical```: Accepts ```true``` or ```false```. If you're using a vertical menu, this needs to be turned on.
 
