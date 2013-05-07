@@ -28,7 +28,8 @@
 				// Displaying the container of the content and the first set of data.
 				cf.contentContainer.show();
 				cf.content.eq(0).show();
-			
+				currentID = cf.menuItems.eq(0).find('a').attr('href');
+				
 				// Checking to see if the navHelper is on and setting the direction.
 				if (cf.navHelper === true) {
 					cf.isVertical === true ? currentDirection = 'top' : currentDirection = 'left';
@@ -52,10 +53,11 @@
 			checkStatus: function(e) {
 				// Keeps the Address Bar from showing "#contentid" everytime we click a link in the menu.
 				e.preventDefault();
+								
 				xNav.setData($(this));
 			
 				// Check used to see if we're clicking the same link twice. If we are, don't reload. 
-				if ( currentID === undefined || currentID !==  currentLink.attr('href')) {
+				if ( currentID === undefined || currentID !==  currentLink.attr('href') ) {
 					xNav.newContentRequest();
 				}; 
 			},
@@ -101,7 +103,7 @@
 			menuItems:$('#menu li'),
 			contentContainer: $('#content-pages'),
 			content: $('#content-pages div'),
-			navHelper: false,
+			navHelper: true,
 			isVertical: false
 		});
 	
