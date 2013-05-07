@@ -45,6 +45,12 @@ These are the options that you can pass to xNav as an option in the xNav.init fu
 
 ```navHelper```: Accepts ```true``` or ```false```. This will turn on the navigation helper. 
 
+```defaultLink```: The link to the data set that the navHelper with position itself with on load. Link numbers are not zero based.
+
+```animatedNavHelper```: Accepts ```true``` or ```false```. This will animate the movements of the navHelper.
+
+```animatedNavHelperSpeed```: The speed of the navHelper's animation in milliseconds. Automatically set to ```500```.
+
 ```isVertical```: Accepts ```true``` or ```false```. If you're using a vertical menu, this needs to be turned on.
 
 Contributing
