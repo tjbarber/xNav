@@ -26,9 +26,9 @@ To implement xNav into your project, you need to have at least a ```<ul>``` elem
 ```
 After that include the xNav.js near your ```</body>``` tag and set the configuration options inside of xNav.js (<em>note that this is changing incredibly soon</em>).
 
-xNav is still in the early stages of development and shouldn't be used right now unless you know what you're doing. I'm still working on making this easier to use and scalable across more than just one file sites.
+xNav is still in the early stages of development and shouldn't be used on most production sites right now. I'm still working on making this easier to use and scalable across more than just one file sites.
 
-So in short, it's great if you know jQuery and you want to put up a **small** site with a **small amount** of data. Otherwise, you'll be hindering the user experience just because the client would be processing a lot of GET requests. 
+So in short, it's great if you know jQuery and you want to put up a **small** site with a **small amount** of data. Otherwise, you have the potential of making the user experience bad just because the client will be processing a lot of GET requests. 
 
 xNav Configuration Options
 ---
@@ -42,8 +42,6 @@ These are the options that you can pass to xNav as an option in the xNav.init fu
 ```menuItems```: The valid jQuery selector of your menu list items. Required. Example: ```$('#menu li')```
 
 ```contentContainer```: The valid jQuery selector of your data set's parent ```<div>```. Required.
-
-```content```: The valid jQuery selector of your data sets. Required. Recommended: ```$('#content-pages div')```
 
 ```navHelper```: Accepts ```true``` or ```false```. This will turn on the navigation helper.
 
