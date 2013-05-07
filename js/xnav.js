@@ -17,6 +17,8 @@
 				contentContainer: undefined,
 				defaultLink: 1,
 				navHelper: false,
+				animatedNavHelper: false,
+				animatedNavHelperSpeed: 500,
 				isVertical: false
 			},
 		
@@ -40,7 +42,6 @@
 					// Setting the data of the default set of data so the navHelper knows where it needs to go upon initialization. 
 					xNav.setData(xNav.config.menuItems.eq(defaultLinkNumber));
 					xNav.helper.set();
-					xNav.helper.control();
 				}
 			
 				(this.config.menuItems).on('click', 'a', this.checkStatus); 
@@ -93,15 +94,29 @@
 				set: function() {
 					$('<div id="indicator"></div>')
 						.insertBefore(xNav.config.contentContainer)
-						.show();
+							.show().css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
 				},
-			
+				
 				control: function() {
-					$('#indicator')
-						.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
+					if ( xNav.config.animatedNavHelper === true ) {
+						if ( currentDirection === 'top' ) {
+							$('#indicator')
+								.animate({
+									top: currentPosition[currentDirection] + (currentDistance / 2.5)
+								}, [xNav.config.animatedNavHelper]);
+							} else {
+							$('#indicator')
+								.animate({
+									left: currentPosition[currentDirection] + (currentDistance / 2.5)
+								}, [xNav.config.animatedNavHelper]);
+							}
+						} else {
+						$('#indicator')
+							.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
+						}
 					}
-			}
-		};
+				}
+			};
 	
 		xNav.init({
 			effect: 'fadeToggle',
@@ -109,6 +124,7 @@
 			contentContainer: $('#content-pages'),
 			defaultLink: 1,
 			navHelper: true,
+			animatedNavHelper: true,
 			isVertical: false
 		});
 	
