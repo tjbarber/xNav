@@ -15,26 +15,30 @@
 				speed:undefined,
 				menuItems: undefined,
 				contentContainer: undefined,
+				defaultLink: 1,
 				navHelper: false,
 				isVertical: false
 			},
 		
 			init: function(config) {
-				var cf = xNav.config;
-			
 				$.extend(this.config, config);
+				
+				var cf = xNav.config,
+					defaultLinkNumber = cf.defaultLink - 1,
+				 	defaultLink = cf.menuItems.eq(defaultLinkNumber).find('a');
 			
-				// Displaying the container of the content and the first set of data.
+				// Displaying the container of the content and the default set of data.
 				cf.contentContainer.show();
-				cf.contentContainer.find('div').eq(0).show();
-				currentID = cf.menuItems.eq(0).find('a').attr('href');
+				cf.contentContainer.find('div').eq(defaultLinkNumber).show();
+				currentID = defaultLink.attr('href');
+				defaultLink.css('cursor','default');
 				
 				// Checking to see if the navHelper is on and setting the direction.
 				if (cf.navHelper === true) {
 					cf.isVertical === true ? currentDirection = 'top' : currentDirection = 'left';
 				
-					// Setting the data of the first set of data so the navHelper knows where it needs to go upon initialization. 
-					xNav.setData(xNav.config.menuItems.eq(0));
+					// Setting the data of the default set of data so the navHelper knows where it needs to go upon initialization. 
+					xNav.setData(xNav.config.menuItems.eq(defaultLinkNumber));
 					xNav.helper.set();
 					xNav.helper.control();
 				}
@@ -68,8 +72,10 @@
 			
 				// We use the ID of the corresponding content set in the link's href attribute so we can use single page sites with JavaScript disabled (always build your sites with JS disabled first). 	
 				currentID = currentLink.attr('href');
-			
-				cf.contentContainer.find('div')
+				currentLink.closest('li').siblings().find('a').css('cursor','auto');
+				currentLink.css('cursor','default');
+				
+				cf.contentContainer.children('div')
 					.siblings()
 					.hide();
 			
@@ -86,13 +92,13 @@
 			
 				set: function() {
 					$('<div id="indicator"></div>')
-						.insertBefore(xNav.config.contentContainer);
+						.insertBefore(xNav.config.contentContainer)
+						.show();
 				},
 			
 				control: function() {
 					$('#indicator')
-						.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5))
-						.show();
+						.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
 					}
 			}
 		};
@@ -101,6 +107,7 @@
 			effect: 'fadeToggle',
 			menuItems:$('#menu li'),
 			contentContainer: $('#content-pages'),
+			defaultLink: 1,
 			navHelper: true,
 			isVertical: false
 		});
