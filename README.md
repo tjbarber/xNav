@@ -11,24 +11,38 @@ xNav is not designed to be something you drag and drop into your project and it 
 To implement xNav into your project, you need to have at least a ```<ul>``` element to act as your menu, a containing ```<div>```, and a set of "content" ```<div>```'s. See the code below:
 
 ```html
-  <ul>
+<ul>
     <li><a href="#container1">Container 1</a></li>
     <li><a href="#container2">Container 2</a></li>
-  </ul>
-  <div id="content-pages">
+</ul>
+<div id="content-pages">
     <div class="content" id="container1">
-  	  <p>Content Container 1</p>
-  	</div>
-  <div id="container2">
-  		<p>Content Container 2</p>
-  </div>
+    <p>Content Container 1</p>
+</div>
+    <div id="container2">
+        <p>Content Container 2</p>
+    </div>
 </div>
 ```
-After that include the xNav.js near your ```</body>``` tag and set the configuration options inside of xNav.js (<em>note that this is changing incredibly soon</em>).
+After that include the xNav.js near your ```</body>``` tag and set the configuration options in a new ```<script>``` tag afterwards, like so:
 
-xNav is still in the early stages of development and shouldn't be used on most production sites right now. I'm still working on making this easier to use and scalable across more than just one file sites.
+```javascript
+<script>
+  $('#menu').xNav({
+        effect: 'fadeToggle',
+        menuItems:$('#menu li'),
+		contentContainer: $('#content-pages'),
+		defaultLink: 1,
+		navHelper: true,
+		animatedNavHelper: true,
+		isVertical: true
+	});
+</script>
+```
 
-So in short, it's great if you know jQuery and you want to put up a **small** site with a **small amount** of data. Otherwise, you have the potential of making the user experience bad just because the client will be processing a lot of GET requests. 
+xNav probably shouldn't be used on most production sites right now, but feel free to use it if it fits the "one-file site" use case and you don't care about users that have JavaScript disabled. However, I'm still working on making this scalable across more than just "one file" sites.
+
+So in short, it's great if you want to put up a **small** site with a **small amount** of data. Otherwise, you have the potential of making the user experience bad just because the client will be processing a lot of GET requests from that one file. 
 
 xNav Configuration Options
 ---
