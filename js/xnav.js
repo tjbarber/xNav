@@ -15,7 +15,6 @@
 				speed:undefined,
 				menuItems: undefined,
 				contentContainer: undefined,
-				content: undefined,
 				navHelper: false,
 				isVertical: false
 			},
@@ -27,7 +26,7 @@
 			
 				// Displaying the container of the content and the first set of data.
 				cf.contentContainer.show();
-				cf.content.eq(0).show();
+				cf.contentContainer.find('div').eq(0).show();
 				currentID = cf.menuItems.eq(0).find('a').attr('href');
 				
 				// Checking to see if the navHelper is on and setting the direction.
@@ -70,7 +69,7 @@
 				// We use the ID of the corresponding content set in the link's href attribute so we can use single page sites with JavaScript disabled (always build your sites with JS disabled first). 	
 				currentID = currentLink.attr('href');
 			
-				cf.content
+				cf.contentContainer.find('div')
 					.siblings()
 					.hide();
 			
@@ -102,7 +101,6 @@
 			effect: 'fadeToggle',
 			menuItems:$('#menu li'),
 			contentContainer: $('#content-pages'),
-			content: $('#content-pages div'),
 			navHelper: true,
 			isVertical: false
 		});
