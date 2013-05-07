@@ -1,4 +1,4 @@
-(function() {
+(function( $, window, document, undefined ) {
 	
 	$('html').addClass('js');
 	
@@ -7,23 +7,12 @@
 		currentDistance,
 		currentLink,
 		currentDirection,
-
+	
 		xNav = {
 		
-			config: {
-				effect: 'toggle',
-				speed:undefined,
-				menuItems: undefined,
-				contentContainer: undefined,
-				defaultLink: 1,
-				navHelper: false,
-				animatedNavHelper: false,
-				animatedNavHelperSpeed: 500,
-				isVertical: false
-			},
-		
 			init: function(config) {
-				$.extend(this.config, config);
+				
+				this.config = $.extend({}, config);
 				
 				var cf = xNav.config,
 					defaultLinkNumber = cf.defaultLink - 1,
@@ -117,15 +106,20 @@
 					}
 				}
 			};
-	
-		xNav.init({
-			effect: 'fadeToggle',
-			menuItems:$('#menu li'),
-			contentContainer: $('#content-pages'),
+
+	$.fn.xNav = function( userConfig ) {
+		var settings = $.extend({
+			effect: 'toggle',
+			speed:undefined,
+			menuItems: undefined,
+			contentContainer: undefined,
+			navHelper: false,
 			defaultLink: 1,
-			navHelper: true,
-			animatedNavHelper: true,
+			animatedNavHelper: false,
+			animatedNavHelperSpeed: 500,
 			isVertical: false
-		});
-	
-})();
+		}, userConfig)
+		xNav.init(settings)
+	}
+
+})( jQuery, window, document, undefined );
