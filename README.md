@@ -53,7 +53,7 @@ These are the options that you can pass to xNav as an option in the xNav.init fu
 
 ```speed```: The speed of the effect in milliseconds. Undefined by default because jQuery sets it automatically.
 
-```menuItems```: The valid jQuery selector of your menu list items. Required. Example: ```$('#menu li')```
+```menuItems```: A valid jQuery selector of your menu's list items. Defaults to list items that are children of a passed ```<ul>``` element. Useful if you're storing your list items inside of a ```<div>```. Example: ```$('#menu-container #menu li')```
 
 ```contentContainer```: The valid jQuery selector of your data set's parent ```<div>```. Required.
 
