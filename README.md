@@ -30,13 +30,12 @@ After that include the xNav.js near your ```</body>``` tag and set the configura
 <script>
   $('#menu').xNav({
         effect: 'fadeToggle',
-        menuItems:$('#menu li'),
-		contentContainer: $('#content-pages'),
-		defaultLink: 1,
-		navHelper: true,
-		animatedNavHelper: true,
-		isVertical: true
-	});
+	contentContainer: $('#content-pages'),
+	defaultLink: 1,
+	navHelper: true,
+	animatedNavHelper: true,
+	isVertical: true
+  });
 </script>
 ```
 
