@@ -111,7 +111,7 @@
 		var settings = $.extend({
 			effect: 'toggle',
 			speed:undefined,
-			menuItems: undefined,
+			menuItems: this.children('li'),
 			contentContainer: undefined,
 			navHelper: false,
 			defaultLink: 1,
@@ -119,7 +119,7 @@
 			animatedNavHelperSpeed: 500,
 			isVertical: false
 		}, userConfig)
-		xNav.init(settings)
+		xNav.init(settings);
 	}
 
 })( jQuery, window, document, undefined );
