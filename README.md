@@ -66,6 +66,34 @@ These are the options that you can pass to xNav as an option in the xNav.init fu
 
 ```isVertical```: Accepts ```true``` or ```false```. If you're using a vertical menu, this needs to be turned on.
 
+```useXHR```: Accepts ```true``` or ```false```. 
+
+Using XHR to load data into xNav
+---
+
+Using the useXHR configuration option allows you to create multiple HTML files and have xNav retrieve a specific part of them to load into the index.html page. The beauty of this is that if someone has JavaScript disabled your site will not break. 
+
+Here's how you set it up. Set up the menu and have the ```href``` attribute point to the pages.
+
+```html
+<ul id="menu">
+	<li><a href="index.html">Index</a></li>
+	<li><a href="contact.html">Contact</a></li>
+	<li><a href="about.html">About</a></li>
+	<li><a href="photos.html">Photos</a></li>
+</ul>
+```
+
+Create your initial xNav data set inside of your contentContainer. This is where the content will be loaded. Put all the information for the home page in here.
+
+```html
+<div class="content" id="xNavXHR">
+	<p>This is index.html</p>
+</div>
+```
+
+Structure your other pages in the same way.
+
 Contributing
 ---
 Anyone is welcome to contribute.
