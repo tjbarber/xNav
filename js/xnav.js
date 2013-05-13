@@ -20,7 +20,7 @@
 			
 				// Displaying the container of the content and the default set of data.
 				cf.contentContainer.show();
-				cf.contentContainer.find('div').eq(defaultLinkNumber).show();
+				cf.contentContainer.children('div').eq(defaultLinkNumber).show();
 				currentID = defaultLink.attr('href');
 				defaultLink.css('cursor','default');
 				
@@ -65,13 +65,17 @@
 				currentLink.closest('li').siblings().find('a').css('cursor','auto');
 				currentLink.css('cursor','default');
 				
-				cf.contentContainer.children('div')
-					.siblings()
-					.hide();
+				if (xNav.config.useXHR === true) {
+					cf.contentContainer.load(currentID + ' #xNavXHR');
+				} else {
+					cf.contentContainer.children('div')
+						.siblings()
+						.hide();
 			
-				cf.contentContainer
-					.children('div' + currentID)[effect](speed);
-			
+					cf.contentContainer
+						.children('div' + currentID)[effect](speed);
+				}
+				
 				if (xNav.config.navHelper === true) {
 					xNav.helper.control();
 				}
@@ -117,7 +121,8 @@
 			defaultLink: 1,
 			animatedNavHelper: false,
 			animatedNavHelperSpeed: 500,
-			isVertical: false
+			isVertical: false,
+			useXHR: false
 		}, userConfig)
 		xNav.init(settings);
 	}
