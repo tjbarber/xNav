@@ -7,6 +7,7 @@
 		currentDistance,
 		currentLink,
 		currentDirection,
+		directionEquation,
 	
 		xNav = {
 		
@@ -17,6 +18,8 @@
 				var cf = xNav.config,
 					defaultLinkNumber = cf.defaultLink - 1,
 				 	defaultLink = cf.menuItems.eq(defaultLinkNumber).find('a');
+					
+					
 			
 				// Displaying the container of the content and the default set of data.
 				cf.contentContainer.show();
@@ -41,12 +44,13 @@
 				currentPosition = currentLink.offset();
 				// Checks whether this is a horizontal or vertical menu and then assigns currentDistance either the height or the width of the element.
 				currentDirection === 'top' ? currentDistance = currentLink.height() : currentDistance = currentLink.width();
+				directionEquation = currentPosition[currentDirection] + (currentDistance / 2.5);
 			},
 		
 			checkStatus: function(e) {
 				// Keeps the Address Bar from showing "#contentid" everytime we click a link in the menu.
 				e.preventDefault();
-								
+							
 				xNav.setData($(this));
 			
 				// Check used to see if we're clicking the same link twice. If we are, don't reload. 
@@ -83,11 +87,11 @@
 			},
 		
 			helper: {
-			
+						
 				set: function() {
 					$('<div id="indicator"></div>')
 						.insertBefore(xNav.config.contentContainer)
-							.show().css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
+							.show().css(currentDirection, directionEquation);
 				},
 				
 				control: function() {
@@ -95,17 +99,17 @@
 						if ( currentDirection === 'top' ) {
 							$('#indicator')
 								.animate({
-									top: currentPosition[currentDirection] + (currentDistance / 2.5)
+									top: directionEquation
 								}, [xNav.config.animatedNavHelper]);
 							} else {
 							$('#indicator')
 								.animate({
-									left: currentPosition[currentDirection] + (currentDistance / 2.5)
+									left: directionEquation
 								}, [xNav.config.animatedNavHelper]);
 							}
 						} else {
 						$('#indicator')
-							.css(currentDirection, currentPosition[currentDirection] + (currentDistance / 2.5));
+							.css(currentDirection, directionEquation);
 						}
 					}
 				}

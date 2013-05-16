@@ -19,5 +19,18 @@
 				</div>
 				
 		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+		<script type="text/javascript" src="../../js/xnav.js"></script>
+		<script>
+			$('#menu').xNav({
+				effect: 'fadeToggle',
+				contentContainer: $('#content-pages'),
+				defaultLink: 1,
+				navHelper: true,
+				animatedNavHelper: true,
+				isVertical: false,
+				useXHR: true
+			});
+		</script>
 	</body>
 </html>
